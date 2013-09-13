@@ -75,7 +75,7 @@ public class Main extends Activity implements SensorEventListener {
     		
     		acceleration.setText("Mobile Accel - X: "+ accel_X +
     				"\nY: " + accel_Y +
-    				"\nZ: " + accel_Z);
+    				"\nZ: " + accel_Z + "\n\n");
         }
         else if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
         	
@@ -84,7 +84,7 @@ public class Main extends Activity implements SensorEventListener {
     		
     		gyroscope.setText("Mobile Gyro - X: "+ gyro_X +
     				"\nY: " + gyro_Y +
-    				"\nZ: " + accel_Z);
+    				"\nZ: " + accel_Z + "\n\n");
             
         }
         
@@ -94,9 +94,9 @@ public class Main extends Activity implements SensorEventListener {
            Inclination XYZ axis (estimated / filtered)
         */
         
-        //go.getEstimatedInclination();
-        //imu.setText("Measured  X Y Z axis " + go.RwAcc[0] + ", " + go.RwAcc[1] + ", " + go.RwAcc[2] + "\n" +
-        //		      "Estimated X Y Z axis " + go.RwEst[0] + ", " + go.RwEst[1] + ", " + go.RwEst[2]); 
+        go.getEstimatedInclination();
+        imu.setText("Measured  X Y Z axis " + go.RwAcc[0] + ", " + go.RwAcc[1] + ", " + go.RwAcc[2] + "\n" +
+        		      "Estimated X Y Z axis " + go.RwEst[0] + ", " + go.RwEst[1] + ", " + go.RwEst[2]); 
         
         
 	}

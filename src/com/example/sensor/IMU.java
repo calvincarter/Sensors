@@ -118,7 +118,7 @@ public class IMU {
 		*/
 	}
 	
-	void getEstimatedInclination(){
+	void getEstimatedInclination() {
 		  
 		// remove static from all variables
 		int i = 0;
@@ -137,7 +137,7 @@ public class IMU {
 		for(i=0;i<INPUT_COUNT;i++)
 			
 			// Guide: what is analogRead? get pin values of each analog - http://arduino.cc/en/Reference/analogRead
-			an[i]= 5; //analogRead(i); test
+			an[i]= 1; //analogRead(i); test
 		
 			//compute interval since last sampling time
 			interval = newMicros - lastMicros;    //please note that overflows are ok, since for example 0x0001 - 0x00FE will be equal to 2 
