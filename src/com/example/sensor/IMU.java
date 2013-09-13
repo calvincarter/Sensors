@@ -40,9 +40,6 @@ public class IMU {
 	
 	IMU.Config config;
 	
-	// float getinput[] = {(float) .345, (float) .765, (float) .3553334, (float) .3244, (float) .4454, (float) .3456,
-	//					(float) .876, (float) .476536543565, (float) .76543, (float) .24434, (float) .775433, (float) .555555, (float) .9999999}; 
-	
 	// constructor
 	// initialize some variables
 	IMU() {
@@ -144,8 +141,8 @@ public class IMU {
 			lastMicros = newMicros;               //save for next loop, please note interval will be invalid in first sample but we don't use it
 		  
 			// get accelerometer readings in gyroscope, gives us RwAcc vector
-			//for(w=0;w<=2;w++) RwAcc[w] = getinput[inp]; // getInput(w); test
-		  
+			//for(w=0;w<=2;w++) RwAcc[w] = // getInput(w);
+			// getInput(w) will be the accelerometer xyz values of phone
 			RwAcc[0] = Main.accel_X;
 			RwAcc[1] = Main.accel_Y;
 			RwAcc[2] = Main.accel_Z;
@@ -173,10 +170,10 @@ public class IMU {
 					
 					// get angles between projection of R on ZX/ZY plane and Z axis, based on last RwEst   
 					for(w=0;w<=1;w++) {
-		        		tmpf = (float) (gy[w] + 3); // getInput(3 + w); test                         //get current gyro rate in deg/ms
-		        		tmpf *= interval / 1000.0f;                     //get angle change in deg
-		        		Awz[w] = (float) (Math.atan2(RwEst[w],RwEst[2]) * 180 / PI);   //get angle and convert to degrees        
-		        		Awz[w] += tmpf;                                 //get updated angle according to gyro movement
+		        		tmpf = (float) (gy[w] + 3);  				// get current gyro rate in deg/ms
+		        		tmpf *= interval / 1000.0f;                     			    // get angle change in deg
+		        		Awz[w] = (float) (Math.atan2(RwEst[w],RwEst[2]) * 180 / PI);   //  get angle and convert to degrees        
+		        		Awz[w] += tmpf;                                 			   //  get updated angle according to gyro movement
 					}
 					
 					// estimate sign of RzGyro by looking in what qudrant the angle Axz is, 

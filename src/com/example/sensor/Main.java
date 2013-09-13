@@ -1,8 +1,5 @@
 package com.example.sensor;
 
-
-import java.util.List;
-
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -30,9 +27,7 @@ public class Main extends Activity implements SensorEventListener {
 	static float gyro_Y;
 	
 	IMU go;
-	
-	List<Sensor> sensorList;
-	
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
