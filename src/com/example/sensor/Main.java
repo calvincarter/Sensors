@@ -15,9 +15,10 @@ public class Main extends Activity implements SensorEventListener {
 
 	Sensor accelerometer;
 	SensorManager sm;
-	TextView acceleration;
 	
+	TextView acceleration;
 	TextView gyroscope;
+	TextView imu;
 	
 	Sensor gyro;
 	
@@ -38,18 +39,20 @@ public class Main extends Activity implements SensorEventListener {
 		setContentView(R.layout.main);
 		
 		sm = (SensorManager) getSystemService(SENSOR_SERVICE);
-				
+		
 		accelerometer = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		gyro = sm.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 		
+		// Register a listener for accelerometer and gyroscope
 		sm.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
 		sm.registerListener(this, gyro, SensorManager.SENSOR_DELAY_NORMAL);
 		
+		// Create TextViews
 		acceleration = (TextView) findViewById(R.id.acceleration);
 		gyroscope = (TextView) findViewById(R.id.gyroscope);
+		imu = (TextView) findViewById(R.id.imu);
 		
-		
-		
+		// Setup IMU Algorithm
 		go = new IMU();
 		go.setup();
 	}
@@ -70,7 +73,7 @@ public class Main extends Activity implements SensorEventListener {
     		accel_Y = event.values[1];
     		accel_Z = event.values[2];
     		
-    		acceleration.setText("Accel - X: "+ accel_X +
+    		acceleration.setText("Mobile Accel - X: "+ accel_X +
     				"\nY: " + accel_Y +
     				"\nZ: " + accel_Z);
         }
@@ -79,13 +82,22 @@ public class Main extends Activity implements SensorEventListener {
         	gyro_X = event.values[0];
     		gyro_Y = event.values[1];
     		
-    		gyroscope.setText("Gyro - X: "+ gyro_X +
+    		gyroscope.setText("Mobile Gyro - X: "+ gyro_X +
     				"\nY: " + gyro_Y +
     				"\nZ: " + accel_Z);
             
         }
         
+        
+        /* Set TextView of IMU Results
+           Inclination XYZ axis (as measured by accelerometer)
+           Inclination XYZ axis (estimated / filtered)
+        */
+        
         //go.getEstimatedInclination();
+        //imu.setText("Measured  X Y Z axis " + go.RwAcc[0] + ", " + go.RwAcc[1] + ", " + go.RwAcc[2] + "\n" +
+        //		      "Estimated X Y Z axis " + go.RwEst[0] + ", " + go.RwEst[1] + ", " + go.RwEst[2]); 
+        
         
 	}
 

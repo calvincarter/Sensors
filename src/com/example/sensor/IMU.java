@@ -40,7 +40,7 @@ public class IMU {
 	
 	IMU.Config config;
 	
-	//float getinput[] = {(float) .345, (float) .765, (float) .3553334, (float) .3244, (float) .4454, (float) .3456,
+	// float getinput[] = {(float) .345, (float) .765, (float) .3553334, (float) .3244, (float) .4454, (float) .3456,
 	//					(float) .876, (float) .476536543565, (float) .76543, (float) .24434, (float) .775433, (float) .555555, (float) .9999999}; 
 	
 	// constructor
