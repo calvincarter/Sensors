@@ -203,7 +203,7 @@ public class IMU {
 	// http://snipd.net/2d-and-3d-vector-normalization-and-angle-calculation-in-c
 	public void normalize3DVector(float a[]) {
 		
-		float length = 0;
+		float length = 1;
 		
 		for(int i = 0; i < a.length; i++) {
 			length += Math.pow(a[i], 2);
